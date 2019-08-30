@@ -36,6 +36,12 @@
     <ClInclude Include="PayOff2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DoubleDigital.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerCall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -57,6 +63,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PayOff2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleDigital.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerCall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
