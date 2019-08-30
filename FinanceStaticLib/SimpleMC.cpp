@@ -1,10 +1,8 @@
-#include <cmath>
+#include "pch.h"
 #include "SimpleMC.h"
-#include "Random1.h"
 
-#if !defined(_MSC_VER)
-using namespace std;
-#endif
+#include "Random1.h"
+#include <cmath>
 
 double SimpleMonteCarlo2(const PayOff& thePayOff, double Expiry, double Spot, double Vol, double r, unsigned long NumberOfPaths) {
 	double variance = Vol * Vol * Expiry;
@@ -21,7 +19,6 @@ double SimpleMonteCarlo2(const PayOff& thePayOff, double Expiry, double Spot, do
 		double thisPayOff = thePayOff(thisSpot);
 		runningSum += thisPayOff;
 	}
-
 	double mean = runningSum / NumberOfPaths;
 	mean *= exp(-r * Expiry);
 	return mean;
