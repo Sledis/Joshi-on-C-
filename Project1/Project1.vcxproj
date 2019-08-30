@@ -107,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\sam_e\source\repos\Sledis\Joshi-on-C-\FinanceStaticLib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,11 +153,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Random1.cpp" />
     <ClCompile Include="SimpleMCMain1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Random1.h" />
+    <ProjectReference Include="..\FinanceStaticLib\FinanceStaticLib.vcxproj">
+      <Project>{ee5b7113-aa9d-442e-9ebd-7e3afd961cd3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
