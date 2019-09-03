@@ -151,8 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MCStatistics.h" />
+    <ClInclude Include="Parameters.h" />
     <ClInclude Include="PayOff1.h" />
     <ClInclude Include="PayOff2.h" />
     <ClInclude Include="PayOff3.h" />
@@ -164,13 +167,19 @@
     <ClInclude Include="SimpleMC2.h" />
     <ClInclude Include="SimpleMC3.h" />
     <ClInclude Include="SimpleMC4.h" />
+    <ClInclude Include="SimpleMC6.h" />
+    <ClInclude Include="SimpleMC7.h" />
     <ClInclude Include="Vanilla1.h" />
     <ClInclude Include="Vanilla2.h" />
     <ClInclude Include="Vanilla3.h" />
+    <ClInclude Include="Wrapper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
     <ClCompile Include="FinanceStaticLib.cpp" />
+    <ClCompile Include="MCStatistics.cpp" />
+    <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="PayOff1.cpp" />
     <ClCompile Include="PayOff2.cpp" />
     <ClCompile Include="PayOff3.cpp" />
@@ -187,9 +196,12 @@
     <ClCompile Include="SimpleMC2.cpp" />
     <ClCompile Include="SimpleMC3.cpp" />
     <ClCompile Include="SimpleMC4.cpp" />
+    <ClCompile Include="SimpleMC6.cpp" />
+    <ClCompile Include="SimpleMC7.cpp" />
     <ClCompile Include="Vanilla1.cpp" />
     <ClCompile Include="Vanilla2.cpp" />
     <ClCompile Include="Vanilla3.cpp" />
+    <ClCompile Include="Wrapper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
