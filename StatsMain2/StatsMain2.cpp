@@ -14,6 +14,7 @@ int main()
 	double Vol;
 	double r;
 	unsigned long NumberOfPaths;
+	int NumberOfMoments;
 
 	cout << "Enter expiry: " << flush;
 	cin >> Expiry;
@@ -33,6 +34,9 @@ int main()
 	cout << "Enter number of paths: " << flush;
 	cin >> NumberOfPaths;
 
+	cout << "Enter number of moments: " << flush;
+	cin >> NumberOfMoments;
+
 	PayOffCall thePayOff(Strike);
 
 	VanillaOption theOption(thePayOff, Expiry);
@@ -40,18 +44,19 @@ int main()
 	ParametersConstant VolParam(Vol);
 	ParametersConstant rParam(r);
 
-	StatisticsMean gatherer;
+	StatisticsFirstNMoments gatherer(NumberOfMoments);
+	
 	ConvergenceTable gathererTwo(gatherer);
-
+	
 	SimpleMonteCarlo5(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererTwo);
-
+	
 	vector<vector<double>> results = gathererTwo.GetResultsSoFar();
-
-	cout << "For the call price the results are " << endl;
-
+	
+	cout << "The first " << NumberOfMoments << " four moments of the gathered statistics are; " << endl;
+	
 	for (unsigned long i = 0; i < results.size(); i++) {
 		for (unsigned long j = 0; j < results[i].size(); j++) {
-			cout << results[i][j] << flush;
+			cout << results[i][j] << " " << flush;
 		}
 		cout << endl;
 	}

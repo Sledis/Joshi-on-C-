@@ -27,3 +27,17 @@ private:
 	unsigned long PathsDone;
 
 };
+
+class StatisticsFirstNMoments : public StatisticsMC {
+public:
+	StatisticsFirstNMoments(int Length);
+	virtual void DumpOneResult(double result);
+	virtual std::vector<std::vector<double>> GetResultsSoFar() const;
+	virtual StatisticsMC* clone() const;
+
+private:
+	const int Length;
+	std::vector<double> RunningSums;
+	unsigned long PathsDone;
+	
+};
