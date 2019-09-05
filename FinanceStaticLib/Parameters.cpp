@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Parameters.h"
+#include <cmath>
 
 Parameters::Parameters(const ParametersInner& innerObject) {
 	InnerObjectPtr = innerObject.clone();
@@ -46,4 +47,30 @@ double ParametersConstant::Integral(double time1, double time2) const {
 
 double ParametersConstant::IntegralSquare(double time1, double time2) const {
 	return (time2 - time1) * ConstantSquare;
+}
+
+ParametersExponential::ParametersExponential(double coefficient, double power) :Coefficient(coefficient), Power(power) {};
+
+ParametersInner* ParametersExponential::clone() const {
+	return new ParametersExponential(*this);
+}
+
+double ParametersExponential::Integral(double time1, double time2) const {
+	if (Power != 0) {
+		return (Coefficient / Power) * (exp(Power * time2) - exp(Power * time1));
+	}
+	else {
+		return Coefficient * (time2 - time1);
+	}
+	
+}
+
+double ParametersExponential::IntegralSquare(double time1, double time2) const {
+	if (Power != 0) {
+		return (Coefficient * Coefficient / (2 * Power)) * (exp(2 * Power * time2) - exp(2 * Power * time1));
+	}
+	else {
+		return Coefficient*Coefficient * (time2 - time1);
+	}
+	
 }

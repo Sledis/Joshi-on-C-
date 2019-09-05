@@ -155,11 +155,13 @@
     <ClInclude Include="Arrays.h" />
     <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
+    <ClInclude Include="ExoticEngine.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="Normals.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="ParkMiller.h" />
+    <ClInclude Include="PathDependent.h" />
     <ClInclude Include="PayOff1.h" />
     <ClInclude Include="PayOff2.h" />
     <ClInclude Include="PayOff3.h" />
@@ -185,11 +187,13 @@
     <ClCompile Include="Arrays.cpp" />
     <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
+    <ClCompile Include="ExoticEngine.cpp" />
     <ClCompile Include="FinanceStaticLib.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="ParkMiller.cpp" />
+    <ClCompile Include="PathDependent.cpp" />
     <ClCompile Include="PayOff1.cpp" />
     <ClCompile Include="PayOff2.cpp" />
     <ClCompile Include="PayOff3.cpp" />

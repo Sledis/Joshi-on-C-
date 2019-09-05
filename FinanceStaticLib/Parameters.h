@@ -50,3 +50,18 @@ private:
 
 };
 
+
+//buliding a class of functions of the form Aexp(Bt)
+class ParametersExponential : public ParametersInner {
+public:
+	ParametersExponential(double coefficient, double power);
+	virtual ParametersInner* clone() const;
+	virtual double Integral(double time1, double time2) const;
+	virtual double IntegralSquare(double time1, double time2) const;
+
+private:
+	double Coefficient;
+	double Power;
+
+};
+
