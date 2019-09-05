@@ -44,40 +44,62 @@ int main()
 	ParametersConstant VolParam(Vol);
 	ParametersConstant rParam(r);
 
-	StatisticsFirstNMoments gatherer(NumberOfMoments);
-	ConvergenceTable gathererTwo(gatherer);
 
-	RandomParkMiller generator(1);
+	// Park Miller random
 
-	AntiThetic GenTwo(generator);
+	StatisticsFirstNMoments Rgatherer(NumberOfMoments);
+	ConvergenceTable Rtable(Rgatherer);
+	RandomParkMiller Rgenerator(1);
+	SimpleMonteCarlo6(theOption, Spot, VolParam, rParam, NumberOfPaths, Rtable, Rgenerator);
 
-	SimpleMonteCarlo6(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererTwo, GenTwo);
+	vector<vector<double>> Rresults = Rtable.GetResultsSoFar();
+
+
+
+
+
+	// Low Discrepency stuff
+	StatisticsFirstNMoments LDgatherer(NumberOfMoments);
+	ConvergenceTable LDtable(LDgatherer);
+	LowDiscrepencyParkMiller LDgenerator(1);
+	SimpleMonteCarlo6(theOption, Spot, VolParam, rParam, NumberOfPaths, LDtable, LDgenerator);
 	
-	vector<vector<double>> results = gathererTwo.GetResultsSoFar();
+	vector<vector<double>> LDresults = LDtable.GetResultsSoFar();
+
+
+
+	// Anti thetic Park Miller
+	StatisticsFirstNMoments ATRgatherer(NumberOfMoments);
+	ConvergenceTable ATRtable(Rgatherer);
+	RandomParkMiller ATRgenerator(1);
+	AntiThetic ATRgenerator2(ATRgenerator);
+	SimpleMonteCarlo6(theOption, Spot, VolParam, rParam, NumberOfPaths, ATRtable, ATRgenerator2);
+
+	vector<vector<double>> ATRresults = ATRtable.GetResultsSoFar();
+
+
+	// Anti thetic Low Discrepency stuff
+	StatisticsFirstNMoments ATLDgatherer(NumberOfMoments);
+	ConvergenceTable ATLDtable(ATLDgatherer);
+	LowDiscrepencyParkMiller ATLDgenerator(1);
+	AntiThetic ATLDgenerator2(ATLDgenerator);
+	SimpleMonteCarlo6(theOption, Spot, VolParam, rParam, NumberOfPaths, ATLDtable, ATLDgenerator2);
+
+	vector<vector<double>> ATLDresults = ATLDtable.GetResultsSoFar();
+
+
+
+
+
 	
-	cout << "For the call price the first " << NumberOfMoments << " using Anti-thetic sampling are :" << endl;
+	cout << "The call price convergence tables for the first " << NumberOfMoments << " using Park Miller, low discrepency Park Miller, anti thetic Park Miller and anti thetic low discrepency Park Miller :" << endl;
 	
-	for (unsigned long i = 0; i < results.size(); i++) {
-		for (unsigned long j = 0; j < results[i].size(); j++) {
-			cout << results[i][j] << " " << flush;
+	for (unsigned long i = 0; i < Rresults.size(); i++) {
+		for (unsigned long j = 0; j < Rresults[i].size()-1; j++) {
+			cout << Rresults[i][j]<<" " << LDresults[i][j] << " " << ATRresults[i][j] << " " << ATLDresults[i][j] << " " << flush;
 		}
 		cout << endl;
 	}
-	StatisticsFirstNMoments gathererThree(NumberOfMoments);
-	ConvergenceTable gathererFour(gathererThree);
-	RandomParkMiller GenOne(1);
-
-	SimpleMonteCarlo6(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererFour, GenOne);
-
-	vector<vector<double>> results2 = gathererFour.GetResultsSoFar();
-
-	cout << "For the call price the first " << NumberOfMoments << " using non Anti-thetic sampling are :" << endl;
-
-	for (unsigned long i = 0; i < results2.size(); i++) {
-		for (unsigned long j = 0; j < results2[i].size(); j++) {
-			cout << results2[i][j] << " " << flush;
-		}
-		cout << endl;
-	}
+	
 }
 

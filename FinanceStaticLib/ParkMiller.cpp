@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ParkMiller.h"
+#include <iostream>
 
 const long a = 16807;
 const long m = 2147483647;
@@ -69,6 +70,55 @@ void RandomParkMiller::Reset() {
 }
 
 void RandomParkMiller::ResetDimensionality(unsigned long NewDimensionality) {
+	RandomBase::ResetDimensionality(NewDimensionality);
+	InnerGenerator.SetSeed(InitialSeed);
+}
+
+
+LowDiscrepencyParkMiller::LowDiscrepencyParkMiller(unsigned long Dimensionality, unsigned long Seed) :RandomBase(Dimensionality), InnerGenerator(Seed), InitialSeed(Seed) {
+	Reciprocal = 1 / (1.0 + InnerGenerator.Max());
+	Previous.resize(Dimensionality);
+	for (int i = 0; i < Dimensionality; i++) {
+		Previous[i] = -0.5;
+	}
+}
+
+RandomBase* LowDiscrepencyParkMiller::clone() const {
+	return new LowDiscrepencyParkMiller(*this);
+}
+
+void LowDiscrepencyParkMiller::GetUniforms(MJArray& variates) {
+	for (unsigned long j = 0; j < GetDimensionality(); j++) {
+		double previousRand = Previous[j];
+		double halvedRand = (InnerGenerator.GetOneRandomInteger() * Reciprocal)/2 ;
+		double random = previousRand + 0.5 + halvedRand;
+		while (random > 1) {
+			random -= 1;
+		}
+		variates[j] = random;
+		Previous[j] = random;
+		
+	
+	}
+}
+
+void LowDiscrepencyParkMiller::Skip(unsigned long numberOfPaths) {
+	MJArray tmp(GetDimensionality());
+	for (unsigned long j = 0; j < numberOfPaths; j++) {
+		GetUniforms(tmp);
+	}
+}
+
+void LowDiscrepencyParkMiller::SetSeed(unsigned long Seed) {
+	InitialSeed = Seed;
+	InnerGenerator.SetSeed(Seed);
+}
+
+void LowDiscrepencyParkMiller::Reset() {
+	InnerGenerator.SetSeed(InitialSeed);
+}
+
+void LowDiscrepencyParkMiller::ResetDimensionality(unsigned long NewDimensionality) {
 	RandomBase::ResetDimensionality(NewDimensionality);
 	InnerGenerator.SetSeed(InitialSeed);
 }

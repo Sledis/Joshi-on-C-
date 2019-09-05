@@ -1,5 +1,6 @@
 #pragma once
 #include "Random2.h"
+#include <vector>
 class ParkMiller
 {
 public:
@@ -27,4 +28,21 @@ private:
 	ParkMiller InnerGenerator;
 	unsigned long InitialSeed;
 	double Reciprocal;
+};
+
+class LowDiscrepencyParkMiller : public RandomBase {
+public:
+	LowDiscrepencyParkMiller(unsigned long Dimensionality, unsigned long Seed = 1);
+	virtual RandomBase* clone() const;
+	virtual void GetUniforms(MJArray& variates);
+	virtual void Skip(unsigned long numberOfPaths);
+	virtual void SetSeed(unsigned long Seed);
+	virtual void Reset();
+	virtual void ResetDimensionality(unsigned long NewDimensionality);
+
+private:
+	ParkMiller InnerGenerator;
+	unsigned long InitialSeed;
+	double Reciprocal;
+	std::vector<double> Previous;
 };
