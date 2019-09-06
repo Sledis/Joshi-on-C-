@@ -114,6 +114,21 @@
     <ClInclude Include="GeometricAsian.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TreeProduct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeAmerican.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeEuropean.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BinomialTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffForward.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -213,6 +228,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeometricAsian.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeProduct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeAmerican.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeEuropean.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BinomialTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffForward.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

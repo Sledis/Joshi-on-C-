@@ -106,7 +106,7 @@ int main() {
 
 	vector<vector<double>> results = gathererTwo.GetResultsSoFar();
 
-	cout << "For the Asian call price the results are : " << endl;
+	cout << "For the Asian price the results are : " << endl;
 
 	for (unsigned long i = 0; i < results.size(); i++) {
 		for (unsigned long j = 0; j < results[i].size(); j++) {
@@ -114,6 +114,9 @@ int main() {
 		}
 		cout << endl;
 	}
+
+	delete PayOffPointer;
+	delete pathDependentPtr;
 
 	double tmp;
 	cin >> tmp;
