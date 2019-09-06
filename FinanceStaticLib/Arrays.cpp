@@ -234,6 +234,8 @@ double MJArray::sum() const
 }
 
 
+
+
 double MJArray::min() const
 {
 

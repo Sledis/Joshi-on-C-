@@ -5,6 +5,7 @@
 #include "AntiThetic.h"
 #include "PathDependentAsian.h"
 #include "ExoticBSEngine.h"
+#include "GeometricAsian.h"
 
 
 
@@ -15,6 +16,8 @@ using namespace std;
 
 
 int main() {
+	int callOrPut;
+	int AriOrGeo;
 	double Expiry;
 	double Strike;
 	double Spot;
@@ -30,6 +33,22 @@ int main() {
 
 	cout << "Enter strike: " << flush;
 	cin >> Strike;
+
+	cout << "Enter 1 for call, anything else for put: " << flush;
+	cin >> callOrPut;
+
+	PayOff* PayOffPointer;
+	if (callOrPut == 1) {
+		PayOffPointer = new PayOffCall(Strike);
+	}
+	else {
+		PayOffPointer = new PayOffPut(Strike);
+	}
+
+	
+
+
+
 
 	cout << "Enter spot: " << flush;
 	cin >> Spot;
@@ -49,7 +68,7 @@ int main() {
 	cout << "Enter number of paths: " << flush;
 	cin >> NumberOfPaths;
 
-	PayOffCall thePayOff(Strike);
+	
 	MJArray times(NumberOfDates);
 
 	for (unsigned long i = 0; i < NumberOfDates; i++) {
@@ -60,7 +79,19 @@ int main() {
 	ParametersConstant rParam(r);
 	ParametersConstant dParam(d);
 
-	PathDependentAsian theOption(times, Expiry, thePayOff);
+	cout << "Enter 1 for arithmetic averaging, anything else for geometric: " << flush;
+	cin >> AriOrGeo;
+
+	PathDependent* pathDependentPtr;
+
+	if (AriOrGeo == 1) {
+		pathDependentPtr = new PathDependentAsian(times, Expiry, *PayOffPointer);
+	}
+	else {
+		pathDependentPtr = new GeometricAsian(times, Expiry, *PayOffPointer);
+	}
+
+	
 
 	StatisticsMean gatherer;
 	ConvergenceTable gathererTwo(gatherer);
@@ -69,7 +100,7 @@ int main() {
 
 	AntiThetic GenTwo(generator);
 
-	ExoticBSEngine theEngine(theOption, rParam, dParam, VolParam, GenTwo, Spot);
+	ExoticBSEngine theEngine(*pathDependentPtr, rParam, dParam, VolParam, GenTwo, Spot);
 
 	theEngine.DoSimulation(gathererTwo, NumberOfPaths);
 

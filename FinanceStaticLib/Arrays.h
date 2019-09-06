@@ -51,6 +51,7 @@ public:
 	void resize(unsigned long newSize);
 
 	double sum() const;
+
 	double min() const;
 	double max() const;
 
