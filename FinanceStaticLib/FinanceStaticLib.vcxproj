@@ -153,25 +153,23 @@
   <ItemGroup>
     <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="Arrays.h" />
-    <ClInclude Include="Bisection.h" />
-    <ClInclude Include="BlackScholesFormulas.h" />
-    <ClInclude Include="BSCallClass.h" />
-    <ClInclude Include="BSCallTwo.h" />
     <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
+    <ClInclude Include="ExoticBSEngine.h" />
     <ClInclude Include="ExoticEngine.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Linear.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="NewtonRaphson.h" />
     <ClInclude Include="Normals.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="ParkMiller.h" />
     <ClInclude Include="PathDependent.h" />
+    <ClInclude Include="PathDependentAsian.h" />
     <ClInclude Include="PayOff1.h" />
     <ClInclude Include="PayOff2.h" />
     <ClInclude Include="PayOff3.h" />
     <ClInclude Include="PayOffBridge.h" />
+    <ClInclude Include="PayOffForward.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Polynomials.h" />
     <ClInclude Include="PowerCall.h" />
@@ -184,7 +182,6 @@
     <ClInclude Include="SimpleMC6.h" />
     <ClInclude Include="SimpleMC7.h" />
     <ClInclude Include="SimpleMC8.h" />
-    <ClInclude Include="TrapeziumRule.h" />
     <ClInclude Include="Vanilla1.h" />
     <ClInclude Include="Vanilla2.h" />
     <ClInclude Include="Vanilla3.h" />
@@ -193,23 +190,22 @@
   <ItemGroup>
     <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="Arrays.cpp" />
-    <ClCompile Include="BlackScholesFormulas.cpp" />
-    <ClCompile Include="BSCallClass.cpp" />
-    <ClCompile Include="BSCallTwo.cpp" />
     <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
+    <ClCompile Include="ExoticBSEngine.cpp" />
     <ClCompile Include="ExoticEngine.cpp" />
     <ClCompile Include="FinanceStaticLib.cpp" />
-    <ClCompile Include="Linear.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="ParkMiller.cpp" />
     <ClCompile Include="PathDependent.cpp" />
+    <ClCompile Include="PathDependentAsian.cpp" />
     <ClCompile Include="PayOff1.cpp" />
     <ClCompile Include="PayOff2.cpp" />
     <ClCompile Include="PayOff3.cpp" />
     <ClCompile Include="PayOffBridge.cpp" />
+    <ClCompile Include="PayOffForward.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -227,6 +223,9 @@
     <ClCompile Include="SimpleMC6.cpp" />
     <ClCompile Include="SimpleMC7.cpp" />
     <ClCompile Include="SimpleMC8.cpp" />
+    <ClCompile Include="TreeAmerican.cpp" />
+    <ClCompile Include="TreeEuropean.cpp" />
+    <ClCompile Include="TreeProduct.cpp" />
     <ClCompile Include="Vanilla1.cpp" />
     <ClCompile Include="Vanilla2.cpp" />
     <ClCompile Include="Vanilla3.cpp" />
