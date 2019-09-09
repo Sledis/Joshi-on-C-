@@ -20,33 +20,33 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{EE5B7113-AA9D-442E-9EBD-7E3AFD961CD3}</ProjectGuid>
+    <ProjectGuid>{E1110992-8C79-434A-96A6-4734D37BF35A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>FinanceStaticLib</RootNamespace>
+    <RootNamespace>SolveMain1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -70,10 +70,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -82,50 +82,51 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\sam_e\source\repos\Joshi on C++\FinanceStaticLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -133,104 +134,30 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AntiThetic.h" />
-    <ClInclude Include="Arrays.h" />
-    <ClInclude Include="Bisection.h" />
-    <ClInclude Include="BlackScholesFormulas.h" />
-    <ClInclude Include="BSCallClass.h" />
-    <ClInclude Include="BSCallTwo.h" />
-    <ClInclude Include="ConvergenceTable.h" />
-    <ClInclude Include="DoubleDigital.h" />
-    <ClInclude Include="ExoticEngine.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="Linear.h" />
-    <ClInclude Include="MCStatistics.h" />
-    <ClInclude Include="NewtonRaphson.h" />
-    <ClInclude Include="Normals.h" />
-    <ClInclude Include="Parameters.h" />
-    <ClInclude Include="ParkMiller.h" />
-    <ClInclude Include="PathDependent.h" />
-    <ClInclude Include="PayOff1.h" />
-    <ClInclude Include="PayOff2.h" />
-    <ClInclude Include="PayOff3.h" />
-    <ClInclude Include="PayOffBridge.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="Polynomials.h" />
-    <ClInclude Include="PowerCall.h" />
-    <ClInclude Include="Random1.h" />
-    <ClInclude Include="Random2.h" />
-    <ClInclude Include="SimpleMC.h" />
-    <ClInclude Include="SimpleMC2.h" />
-    <ClInclude Include="SimpleMC3.h" />
-    <ClInclude Include="SimpleMC4.h" />
-    <ClInclude Include="SimpleMC6.h" />
-    <ClInclude Include="SimpleMC7.h" />
-    <ClInclude Include="SimpleMC8.h" />
-    <ClInclude Include="TrapeziumRule.h" />
-    <ClInclude Include="Vanilla1.h" />
-    <ClInclude Include="Vanilla2.h" />
-    <ClInclude Include="Vanilla3.h" />
-    <ClInclude Include="Wrapper.h" />
+    <ClCompile Include="SolveMain1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AntiThetic.cpp" />
-    <ClCompile Include="Arrays.cpp" />
-    <ClCompile Include="BlackScholesFormulas.cpp" />
-    <ClCompile Include="BSCallClass.cpp" />
-    <ClCompile Include="BSCallTwo.cpp" />
-    <ClCompile Include="ConvergenceTable.cpp" />
-    <ClCompile Include="DoubleDigital.cpp" />
-    <ClCompile Include="ExoticEngine.cpp" />
-    <ClCompile Include="FinanceStaticLib.cpp" />
-    <ClCompile Include="Linear.cpp" />
-    <ClCompile Include="MCStatistics.cpp" />
-    <ClCompile Include="Normals.cpp" />
-    <ClCompile Include="Parameters.cpp" />
-    <ClCompile Include="ParkMiller.cpp" />
-    <ClCompile Include="PathDependent.cpp" />
-    <ClCompile Include="PayOff1.cpp" />
-    <ClCompile Include="PayOff2.cpp" />
-    <ClCompile Include="PayOff3.cpp" />
-    <ClCompile Include="PayOffBridge.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="Polynomials.cpp" />
-    <ClCompile Include="PowerCall.cpp" />
-    <ClCompile Include="Random1.cpp" />
-    <ClCompile Include="Random2.cpp" />
-    <ClCompile Include="SimpleMC.cpp" />
-    <ClCompile Include="SimpleMC2.cpp" />
-    <ClCompile Include="SimpleMC3.cpp" />
-    <ClCompile Include="SimpleMC4.cpp" />
-    <ClCompile Include="SimpleMC6.cpp" />
-    <ClCompile Include="SimpleMC7.cpp" />
-    <ClCompile Include="SimpleMC8.cpp" />
-    <ClCompile Include="Vanilla1.cpp" />
-    <ClCompile Include="Vanilla2.cpp" />
-    <ClCompile Include="Vanilla3.cpp" />
-    <ClCompile Include="Wrapper.cpp" />
+    <ProjectReference Include="..\FinanceStaticLib\FinanceStaticLib.vcxproj">
+      <Project>{ee5b7113-aa9d-442e-9ebd-7e3afd961cd3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
