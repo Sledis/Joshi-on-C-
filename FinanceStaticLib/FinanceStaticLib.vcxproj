@@ -170,8 +170,11 @@
     <ClInclude Include="PayOff3.h" />
     <ClInclude Include="PayOffBridge.h" />
     <ClInclude Include="PayOffConstructible.h" />
+    <ClInclude Include="PayOffConstructible2.h" />
+    <ClInclude Include="PayOffDigital.h" />
     <ClInclude Include="PayOffFactory.h" />
     <ClInclude Include="PayOffForward.h" />
+    <ClInclude Include="PayOffStraddle.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Polynomials.h" />
     <ClInclude Include="PowerCall.h" />
@@ -208,8 +211,10 @@
     <ClCompile Include="PayOff3.cpp" />
     <ClCompile Include="PayOffBridge.cpp" />
     <ClCompile Include="PayOffConstructible.cpp" />
+    <ClCompile Include="PayOffDigital.cpp" />
     <ClCompile Include="PayOffFactory.cpp" />
     <ClCompile Include="PayOffForward.cpp" />
+    <ClCompile Include="PayOffStraddle.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

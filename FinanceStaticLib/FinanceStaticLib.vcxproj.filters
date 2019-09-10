@@ -126,6 +126,15 @@
     <ClInclude Include="PayOffConstructible.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PayOffDigital.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffStraddle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffConstructible2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -243,6 +252,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PayOffConstructible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffDigital.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PayOffStraddle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -153,7 +153,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="PayFactoryMain.cpp" />
+    <ClCompile Include="PayOffDigitalRegistration.cpp" />
+    <ClCompile Include="PayOffDoubleDigitalRegistration.cpp" />
     <ClCompile Include="PayOffRegistration.cpp" />
+    <ClCompile Include="PayOffStraddleRegistration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinanceStaticLib\FinanceStaticLib.vcxproj">

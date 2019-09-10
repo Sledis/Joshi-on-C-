@@ -13,3 +13,7 @@ double PayOffDoubleDigital::operator()(double Spot) const {
 	}
 	return 1;
 }
+
+PayOff* PayOffDoubleDigital::clone() const {
+	return new PayOffDoubleDigital(*this);
+}
