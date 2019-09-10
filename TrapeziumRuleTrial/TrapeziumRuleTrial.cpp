@@ -37,7 +37,8 @@ int main()
 	cin >> Steps;
 
 	double integral = TrapeziumRule<Polynomials, & Polynomials::value>(Start, Stop, Steps, function);
-	cout << "The integral has value: " << integral << endl;
+	cout << "The numberical integral has value: " << integral << endl;
+	cout << "The actual value is: " << function.integral(Start, Stop) << endl;
 	//Linear aLine(1, 0);
 	//vector<double> Coefficients{ 1,0,0,2 };
 	//Polynomials quad(Coefficients);
