@@ -23,3 +23,14 @@ double Polynomials::derivative(double x) const  {
 	}
 	return sum;
 }
+
+double Polynomials::integral(double start, double end) const {
+	int Length = Coefficients.size();
+	double sum = 0;
+	for (unsigned i = 0; i < Length; i++) {
+		sum += pow(end, i + 1) * Coefficients[Length - 1 - i] / (i + 1) - pow(start, i + 1) * Coefficients[Length - 1 - i] / (i + 1);
+	}
+
+
+	return sum;
+}
