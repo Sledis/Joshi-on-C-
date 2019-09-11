@@ -10,6 +10,8 @@
 #include "AntiThetic.h"
 #include "Parameters.h"
 #include "SimpleMC8.h"
+#include "FunctionFactory.h"
+#include "SquaredRandonAlgo.h"
 
 using namespace std;
 
@@ -21,6 +23,8 @@ int main() {
 
 	cout << "Enter pay-off name: " << flush;
 	cin >> name;
+
+	
 
 	PayOff* PayOffPtr;
 	double upperStrike;
@@ -54,9 +58,24 @@ int main() {
 	cout << "Enter expiry: " << flush;
 	cin >> Expiry;
 
-	double r;
-	cout << "Enter r: " << flush;
-	cin >> r;
+	string rFunction;
+	cout << "Enter name of r function: " << flush;
+	cin >> rFunction;
+
+	int NumberOfFeatures;
+	vector<double> Coefficients;
+	cout << "Enter number of defining features: " << flush;
+	cin >> NumberOfFeatures;
+
+	Coefficients.resize(NumberOfFeatures);
+	for (int i = 0; i < NumberOfFeatures; i++) {
+		double entry;
+		cout << "Enter the " << NumberOfFeatures-i << "-th feature: " << flush;
+		cin >> entry;
+		Coefficients[i] = entry;
+	}
+
+	ParametersInner* rParam = FunctionFactory::Instance().CreateParameters(rFunction, Coefficients);
 
 	double d;
 	cout << "Enter d: " << flush;
@@ -70,7 +89,7 @@ int main() {
 	cout << "Enter number of paths: " << flush;
 	cin >> NumberOfPaths;
 
-	ParametersConstant rParam(r);
+	
 	ParametersConstant dParam(d);
 	ParametersConstant volParam(vol);
 
@@ -82,7 +101,7 @@ int main() {
 
 	VanillaOption theOption(*PayOffPtr, Expiry);
 
-	SimpleMonteCarlo6(theOption,Spot,volParam,rParam,NumberOfPaths,Table,gen);
+	SimpleMonteCarlo6(theOption,Spot,volParam,*rParam,NumberOfPaths,Table,gen);
 
 	
 

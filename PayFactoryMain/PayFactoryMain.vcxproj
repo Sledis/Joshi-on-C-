@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Polynomial Registration.cpp" />
     <ClCompile Include="PayFactoryMain.cpp" />
     <ClCompile Include="PayOffDigitalRegistration.cpp" />
     <ClCompile Include="PayOffDoubleDigitalRegistration.cpp" />

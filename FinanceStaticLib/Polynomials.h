@@ -7,8 +7,9 @@ public:
 	double value(double x) const;
 	double derivative(double x) const;
 	double integral(double start, double end) const;
+	Polynomials square() const;
 
 private:
-	std::vector<double> Coefficients;
+	std::vector<double> Coefficients ;
 };
 

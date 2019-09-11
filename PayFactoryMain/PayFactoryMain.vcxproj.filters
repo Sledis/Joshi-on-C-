@@ -30,5 +30,8 @@
     <ClCompile Include="PayOffDoubleDigitalRegistration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Polynomial Registration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
