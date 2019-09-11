@@ -158,10 +158,12 @@
     <ClInclude Include="ExoticBSEngine.h" />
     <ClInclude Include="ExoticEngine.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="FunctionFactory.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="NewtonRaphson.h" />
     <ClInclude Include="Normals.h" />
     <ClInclude Include="Parameters.h" />
+    <ClInclude Include="ParametersHelper.h" />
     <ClInclude Include="ParkMiller.h" />
     <ClInclude Include="PathDependent.h" />
     <ClInclude Include="PathDependentAsian.h" />
@@ -200,6 +202,7 @@
     <ClCompile Include="ExoticBSEngine.cpp" />
     <ClCompile Include="ExoticEngine.cpp" />
     <ClCompile Include="FinanceStaticLib.cpp" />
+    <ClCompile Include="FunctionFactory.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="Parameters.cpp" />

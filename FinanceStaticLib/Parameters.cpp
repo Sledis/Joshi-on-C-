@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Parameters.h"
 #include <cmath>
+#include "Polynomials.h"
 
 Parameters::Parameters(const ParametersInner& innerObject) {
 	InnerObjectPtr = innerObject.clone();
@@ -73,4 +74,25 @@ double ParametersExponential::IntegralSquare(double time1, double time2) const {
 		return Coefficient*Coefficient * (time2 - time1);
 	}
 	
+}
+
+ParametersPolynomial::ParametersPolynomial(std::vector<double> Coefficients) :Coefficients(Coefficients) {};
+
+ParametersInner* ParametersPolynomial::clone() const {
+	return new ParametersPolynomial(*this);
+}
+
+double ParametersPolynomial::Integral(double time1, double time2) const{     
+	
+	Polynomials p(Coefficients);
+	return p.integral(time1, time2);
+
+	
+}
+
+double ParametersPolynomial::IntegralSquare(double time1, double time2) const {
+	Polynomials p(Coefficients);
+	Polynomials pSq = p.square();
+	return pSq.integral(time1, time2);
+
 }

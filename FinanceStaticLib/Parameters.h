@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 class ParametersInner
 {
 public:
@@ -63,5 +64,17 @@ private:
 	double Coefficient;
 	double Power;
 
+};
+
+class ParametersPolynomial : public ParametersInner {
+public:
+	ParametersPolynomial(std::vector<double> Coefficients);
+	virtual ParametersInner* clone() const;
+	virtual double Integral(double time1, double time2) const;
+	virtual double IntegralSquare(double time1, double time2) const;
+
+private:
+	std::vector<double> Coefficients;
+	
 };
 
