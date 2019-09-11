@@ -141,6 +141,9 @@
     <ClInclude Include="ParametersHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SquaredRandonAlgo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -267,6 +270,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FunctionFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SquaredRandonAlgo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

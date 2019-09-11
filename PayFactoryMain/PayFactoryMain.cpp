@@ -11,6 +11,7 @@
 #include "Parameters.h"
 #include "SimpleMC8.h"
 #include "FunctionFactory.h"
+#include "SquaredRandonAlgo.h"
 
 using namespace std;
 

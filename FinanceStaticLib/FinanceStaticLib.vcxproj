@@ -189,6 +189,7 @@
     <ClInclude Include="SimpleMC6.h" />
     <ClInclude Include="SimpleMC7.h" />
     <ClInclude Include="SimpleMC8.h" />
+    <ClInclude Include="SquaredRandonAlgo.h" />
     <ClInclude Include="Vanilla1.h" />
     <ClInclude Include="Vanilla2.h" />
     <ClInclude Include="Vanilla3.h" />
@@ -235,6 +236,7 @@
     <ClCompile Include="SimpleMC6.cpp" />
     <ClCompile Include="SimpleMC7.cpp" />
     <ClCompile Include="SimpleMC8.cpp" />
+    <ClCompile Include="SquaredRandonAlgo.cpp" />
     <ClCompile Include="TreeAmerican.cpp" />
     <ClCompile Include="TreeEuropean.cpp" />
     <ClCompile Include="TreeProduct.cpp" />
