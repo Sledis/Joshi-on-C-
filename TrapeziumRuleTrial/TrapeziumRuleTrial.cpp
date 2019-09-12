@@ -5,6 +5,7 @@
 #include "Polynomials.h"
 #include "TrapeziumRule.h"
 #include <chrono>
+#include "Parameters.h"
 
 using namespace std;
 
@@ -13,6 +14,10 @@ using namespace std;
 int main()
 {
 	
+	ParametersLocallyConstant p(std::vector<double>{1, -1, 3}, std::vector<double>{20, 1, 2});
+	std::pair<int, double> answer=p.GetState(23.2);
+	cout << p.Integral(0,26) << endl;
+
 	int degreeOfPolynomial;
 	cout << "Enter degree of Polynomial: " << flush;
 	cin >> degreeOfPolynomial;

@@ -78,3 +78,18 @@ private:
 	
 };
 
+class ParametersLocallyConstant : public ParametersInner {
+public:
+	ParametersLocallyConstant(std::vector<double> Values, std::vector<double> LengthOfTimes);
+	virtual ParametersInner* clone() const;
+	virtual double Integral(double time1, double time2) const;
+	virtual double IntegralSquare(double time1, double time2) const;
+	virtual std::pair<int, double> GetState(double time) const;
+	
+
+private:
+	std::vector<double> Values;
+	std::vector<double> LengthOfTimes;
+	double TotalTime;
+};
+
