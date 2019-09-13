@@ -2,6 +2,7 @@
 #include "Parameters.h"
 #include <cmath>
 #include "Polynomials.h"
+#include <iostream>
 
 Parameters::Parameters(const ParametersInner& innerObject) {
 	InnerObjectPtr = innerObject.clone();
@@ -95,4 +96,51 @@ double ParametersPolynomial::IntegralSquare(double time1, double time2) const {
 	Polynomials pSq = p.square();
 	return pSq.integral(time1, time2);
 
+}
+
+ParametersLocallyConstant::ParametersLocallyConstant(std::vector<double> Values_, std::vector<double> LengthOfTimes_) :Values(Values_), LengthOfTimes(LengthOfTimes_) {
+	TotalTime = 0;
+	for (int i = 0; i < Values.size(); i++) {
+		TotalTime += LengthOfTimes[i];
+	}
+};
+
+ParametersInner* ParametersLocallyConstant::clone() const {
+	return new ParametersLocallyConstant(*this);
+
+}
+
+std::pair<int, double> ParametersLocallyConstant::GetState(double time) const {
+
+	int i = 0;
+	double RunningTime = LengthOfTimes[i];
+	while (RunningTime < time&&i<LengthOfTimes.size()-1) {
+		i++;
+		RunningTime += LengthOfTimes[i];
+	}
+	std::pair<int, double> v(i, -time + RunningTime );
+	return v;
+}
+
+
+double ParametersLocallyConstant::Integral(double time1, double time2) const {
+	int i = GetState(time1).first;
+	double startRemainder = GetState(time1).second;
+	int j = GetState(time2).first;
+	double endRemainder =LengthOfTimes[j]- GetState(time2).second;
+	
+	if (i == j) {
+		return (-endRemainder + startRemainder) * Values[i];
+	}
+	double sum = startRemainder * Values[i] + endRemainder * Values[j];
+	while (i < j - 1) {
+		i++;
+		sum += LengthOfTimes[i] * Values[i];
+	}
+
+	return sum;
+}
+
+double ParametersLocallyConstant::IntegralSquare(double time1, double time2) const {
+	return 0;
 }

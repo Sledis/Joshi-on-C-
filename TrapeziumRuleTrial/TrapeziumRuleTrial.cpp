@@ -4,11 +4,20 @@
 #include "Linear.h"
 #include "Polynomials.h"
 #include "TrapeziumRule.h"
+#include <chrono>
+#include "Parameters.h"
 
 using namespace std;
 
+
+
 int main()
 {
+	
+	ParametersLocallyConstant p(std::vector<double>{1, -1, 3}, std::vector<double>{20, 1, 2});
+	std::pair<int, double> answer=p.GetState(23.2);
+	cout << p.Integral(0,26) << endl;
+
 	int degreeOfPolynomial;
 	cout << "Enter degree of Polynomial: " << flush;
 	cin >> degreeOfPolynomial;
@@ -36,19 +45,25 @@ int main()
 	double Steps;
 	cout << "Enter the number of steps: " << flush;
 	cin >> Steps;
+	
+
 
 	double integral = TrapeziumRule<Polynomials, & Polynomials::value>(Start, Stop, Steps, function);
 	cout << "The numberical integral has value: " << integral << endl;
 	cout << "The actual value is: " << function.integral(Start, Stop) << endl;
-	//cout << "The actual value is: " << function2.integral(Start, Stop) << endl;
-	//Linear aLine(1, 0);
-	//vector<double> Coefficients{ 1,0,0,2 };
-	//Polynomials quad(Coefficients);
-	//double integral = TrapeziumRule<Linear, & Linear::Value>(0, 10, 1, aLine);
-	//cout << integral << endl;
-	//cout << quad.value(1) << " " << quad.derivative(1) << endl;
 
 
-	return 0;
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
 }
 

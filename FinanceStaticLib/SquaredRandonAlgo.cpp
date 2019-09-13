@@ -3,41 +3,41 @@
 #include <iostream>
 
 SquaredRandomAlgo::SquaredRandomAlgo( long Seed_) :Seed(Seed_) {
-	while (Seed > 9999) {
-		Seed -= 1000;
+	while (Seed > 99999) {
+		Seed -= 10000;
 	};
-	while (Seed < 1001) {
-		Seed += 1000;
+	while (Seed < 10001) {
+		Seed += 10000;
 	};
 }
 
 unsigned long SquaredRandomAlgo::GetOneRandomInteger() {
 	int seedSquared = Seed * Seed;
-	int endBit = seedSquared % 100;
-	int almostThere = (seedSquared - endBit) / 100;
+	int endBit = seedSquared % 1000;
+	int almostThere = (seedSquared - endBit) / 1000;
 	
-	SetSeed(almostThere % 10000);
+	SetSeed(almostThere % 100000);
 	std::cout << Seed << " ";
 	return Seed;
 }
 
 void SquaredRandomAlgo::SetSeed(unsigned long Seed_) {
 	Seed = Seed_;
-	while (Seed > 9999) {
-		Seed -= 1000;
+	while (Seed > 99999) {
+		Seed -= 10000;
 	}
-	while (Seed < 1001) {
-		Seed += 1000;
+	while (Seed < 10001) {
+		Seed += 10000;
 	}
 	Seed += 179;
 }
 
 unsigned long SquaredRandomAlgo::Max() {
-	return 9999;
+	return 99999;
 }
 
 unsigned long SquaredRandomAlgo::Min() {
-	return 1001;
+	return 10001;
 }
 
 
