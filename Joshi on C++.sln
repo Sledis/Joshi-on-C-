@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SolveMain1", "SolveMain1\So
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EquityFXMain", "EquityFXMain\EquityFXMain.vcxproj", "{F6FF50A3-B713-4B51-B7B4-43A824B402BF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowDiscrepencyPAdicTrial", "LowDiscrepencyPAdicTrial\LowDiscrepencyPAdicTrial.vcxproj", "{793B364A-647E-4216-A02F-03AC88E71D9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +183,14 @@ Global
 		{F6FF50A3-B713-4B51-B7B4-43A824B402BF}.Release|x64.Build.0 = Release|x64
 		{F6FF50A3-B713-4B51-B7B4-43A824B402BF}.Release|x86.ActiveCfg = Release|Win32
 		{F6FF50A3-B713-4B51-B7B4-43A824B402BF}.Release|x86.Build.0 = Release|Win32
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Debug|x64.ActiveCfg = Debug|x64
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Debug|x64.Build.0 = Debug|x64
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Debug|x86.ActiveCfg = Debug|Win32
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Debug|x86.Build.0 = Debug|Win32
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Release|x64.ActiveCfg = Release|x64
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Release|x64.Build.0 = Release|x64
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Release|x86.ActiveCfg = Release|Win32
+		{793B364A-647E-4216-A02F-03AC88E71D9F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

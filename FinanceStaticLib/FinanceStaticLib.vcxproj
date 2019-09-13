@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LowDiscrepencyPAdic.h" />
     <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="Arrays.h" />
     <ClInclude Include="ConvergenceTable.h" />
@@ -196,6 +197,7 @@
     <ClInclude Include="Wrapper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LowDiscrepencyPAdic.cpp" />
     <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="Arrays.cpp" />
     <ClCompile Include="ConvergenceTable.cpp" />

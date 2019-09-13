@@ -144,6 +144,9 @@
     <ClInclude Include="SquaredRandonAlgo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LowDiscrepencyPAdic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -273,6 +276,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SquaredRandonAlgo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LowDiscrepencyPAdic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

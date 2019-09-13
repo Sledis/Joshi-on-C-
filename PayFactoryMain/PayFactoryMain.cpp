@@ -12,6 +12,7 @@
 #include "SimpleMC8.h"
 #include "FunctionFactory.h"
 #include "SquaredRandonAlgo.h"
+#include "LowDiscrepencyPAdic.h"
 
 using namespace std;
 
@@ -113,6 +114,33 @@ int main() {
 	for (unsigned long i = 0; i < results.size(); i++) {
 		for (unsigned long j = 0; j < results[i].size(); j++) {
 			cout << results[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+
+	
+
+	RandomLowDiscrepencyPAdic pAdicGenerator(1);
+	AntiThetic gen2(pAdicGenerator);
+
+	
+
+	StatisticsMean theGatherer2;
+	ConvergenceTable Table2(theGatherer2);
+
+	SimpleMonteCarlo6(theOption, Spot, volParam, *rParam, NumberOfPaths, Table2, gen2);
+
+
+
+
+	vector<vector<double>> results2 = Table2.GetResultsSoFar();
+
+	cout << "The results are : " << endl;
+
+	for (unsigned long i = 0; i < results.size(); i++) {
+		for (unsigned long j = 0; j < results[i].size(); j++) {
+			cout << results2[i][j] << " ";
 		}
 		cout << endl;
 	}
