@@ -4,4 +4,4 @@
 #include "Random2.h"
 #include "MCStatistics.h"
 
-void SimpleMonteCarlo6(const VanillaOption& TheOption, double Spot, const Parameters& Vol, const Parameters& r, unsigned long NumberOfPaths, StatisticsMC& gatherer, RandomBase& generator);
+int SimpleMonteCarlo6(const VanillaOption& TheOption, double Spot, const Parameters& Vol, const Parameters& r, unsigned long NumberOfPaths, double runTime, StatisticsMC& gatherer, RandomBase& generator);

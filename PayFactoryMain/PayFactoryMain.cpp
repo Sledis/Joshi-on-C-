@@ -86,9 +86,17 @@ int main() {
 	cout << "Enter vol: " << flush;
 	cin >> vol;
 
-	int NumberOfPaths;
+	unsigned long NumberOfPaths;
 	cout << "Enter number of paths: " << flush;
 	cin >> NumberOfPaths;
+
+	if (NumberOfPaths < 1) {
+		NumberOfPaths = ULLONG_MAX;
+	}
+
+	double runTime;
+	cout << "Enter max run time in seconds: " << flush;
+	cin >> runTime;
 
 	
 	ParametersConstant dParam(d);
@@ -102,7 +110,7 @@ int main() {
 
 	VanillaOption theOption(*PayOffPtr, Expiry);
 
-	SimpleMonteCarlo6(theOption,Spot,volParam,*rParam,NumberOfPaths,Table,gen);
+	SimpleMonteCarlo6(theOption,Spot,volParam,*rParam,NumberOfPaths,runTime,Table,gen);
 
 	
 
@@ -122,14 +130,14 @@ int main() {
 	
 
 	RandomLowDiscrepencyPAdic pAdicGenerator(1);
-	AntiThetic gen2(pAdicGenerator);
+	
 
 	
 
 	StatisticsMean theGatherer2;
 	ConvergenceTable Table2(theGatherer2);
 
-	SimpleMonteCarlo6(theOption, Spot, volParam, *rParam, NumberOfPaths, Table2, gen2);
+	SimpleMonteCarlo6(theOption, Spot, volParam, *rParam, NumberOfPaths, runTime, Table2, pAdicGenerator);
 
 
 
@@ -138,8 +146,8 @@ int main() {
 
 	cout << "The results are : " << endl;
 
-	for (unsigned long i = 0; i < results.size(); i++) {
-		for (unsigned long j = 0; j < results[i].size(); j++) {
+	for (unsigned long i = 0; i < results2.size(); i++) {
+		for (unsigned long j = 0; j < results2[i].size(); j++) {
 			cout << results2[i][j] << " ";
 		}
 		cout << endl;
