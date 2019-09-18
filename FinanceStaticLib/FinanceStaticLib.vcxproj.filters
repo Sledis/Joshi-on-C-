@@ -147,6 +147,21 @@
     <ClInclude Include="LowDiscrepencyPAdic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SecantMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSCallTwo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackScholesFormulas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SteffensensMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HalleysMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -279,6 +294,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LowDiscrepencyPAdic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackScholesFormulas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BSCallTwo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

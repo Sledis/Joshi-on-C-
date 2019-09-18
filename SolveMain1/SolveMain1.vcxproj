@@ -159,6 +159,10 @@
       <Project>{ee5b7113-aa9d-442e-9ebd-7e3afd961cd3}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\FinanceStaticLib\BlackScholesFormulas.h" />
+    <ClInclude Include="..\FinanceStaticLib\BSCallClass.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

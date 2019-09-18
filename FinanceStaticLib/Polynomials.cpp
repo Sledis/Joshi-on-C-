@@ -17,14 +17,39 @@ double Polynomials::value(double x) const {
 	return sum;
 }
 
-double Polynomials::derivative(double x) const  {
+Polynomials Polynomials::differentiate() const {
 	int Length = Coefficients.size();
-	double sum = 0;
-	for (unsigned i = 0; i < Length-1; i++) {
-		sum += (i+1)*pow(x, i) * Coefficients[Length - 2 - i];
+	vector<double> NewCoefficients;
+	if (Length == 1) {
+		Polynomials P({ 0 });
+		return P;
 	}
-	return sum;
+	NewCoefficients.resize(Length - 1);
+	for (unsigned i = 0; i < Length - 1; i++) {
+		NewCoefficients[i]= (Length-1-i) *  Coefficients[i];
+	}
+	return NewCoefficients;
+};
+
+double Polynomials::getDerivative(double x, int n) const {
+	Polynomials P(this->Coefficients);
+	for (int i = 0; i < n; i++) {
+		P = P.differentiate();
+	}
+	return P.value(x);
 }
+
+double Polynomials::firstDerivative(double x) const {
+	return this->getDerivative(x, 1);
+}
+
+double Polynomials::secondDerivative(double x) const {
+	return this->getDerivative(x, 2);
+}
+
+
+
+
 
 double Polynomials::integral(double start, double end) const {
 	int Length = Coefficients.size();

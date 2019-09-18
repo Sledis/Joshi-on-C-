@@ -44,3 +44,12 @@ double BlackScholesCallVega(double Spot, double Strike, double r, double d, doub
 	
 	return Spot * exp(-d * Expiry) *sqrt(Expiry)* NormalDensity(d1) ;
 }
+
+double BlackScholesCallVomma(double Spot, double Strike, double r, double d, double Vol, double Expiry) {
+	double standardDeviation = Vol * sqrt(Expiry);
+	double moneyness = log(Spot / Strike);
+	double d1 = (moneyness + (r - d) * Expiry + 0.5 * standardDeviation * standardDeviation) / standardDeviation;
+	double d2 = (moneyness + (r - d) * Expiry - 0.5 * standardDeviation * standardDeviation) / standardDeviation;
+	double Vega = BlackScholesCallVega(Spot, Strike, r, d, Vol, Expiry);
+	return Vega * d1 * d2 / Vol;
+}

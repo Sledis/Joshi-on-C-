@@ -11,3 +11,7 @@ double BSCallTwo::Price(double Vol) const {
 double BSCallTwo::Vega(double Vol) const {
 	return BlackScholesCallVega(Spot, Strike, r, d, Vol, T);
 }
+
+double BSCallTwo::Vomma(double Vol) const {
+	return BlackScholesCallVomma(Spot, Strike, r, d, Vol, T);
+}

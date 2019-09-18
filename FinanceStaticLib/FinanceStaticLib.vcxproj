@@ -151,6 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BlackScholesFormulas.h" />
+    <ClInclude Include="BSCallTwo.h" />
+    <ClInclude Include="HalleysMethod.h" />
     <ClInclude Include="LowDiscrepencyPAdic.h" />
     <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="Arrays.h" />
@@ -183,6 +186,7 @@
     <ClInclude Include="PowerCall.h" />
     <ClInclude Include="Random1.h" />
     <ClInclude Include="Random2.h" />
+    <ClInclude Include="SecantMethod.h" />
     <ClInclude Include="SimpleMC.h" />
     <ClInclude Include="SimpleMC2.h" />
     <ClInclude Include="SimpleMC3.h" />
@@ -191,12 +195,15 @@
     <ClInclude Include="SimpleMC7.h" />
     <ClInclude Include="SimpleMC8.h" />
     <ClInclude Include="SquaredRandonAlgo.h" />
+    <ClInclude Include="SteffensensMethod.h" />
     <ClInclude Include="Vanilla1.h" />
     <ClInclude Include="Vanilla2.h" />
     <ClInclude Include="Vanilla3.h" />
     <ClInclude Include="Wrapper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlackScholesFormulas.cpp" />
+    <ClCompile Include="BSCallTwo.cpp" />
     <ClCompile Include="LowDiscrepencyPAdic.cpp" />
     <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="Arrays.cpp" />
