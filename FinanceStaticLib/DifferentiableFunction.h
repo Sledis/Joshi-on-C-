@@ -2,8 +2,8 @@
 class DifferentiableFunction
 {public:
 	DifferentiableFunction() {};
-	virtual DifferentiableFunction* differentiate()=0;
-	virtual double value(double x)=0;
+	virtual DifferentiableFunction* differentiate() const=0;
+	virtual double value(double x) const=0;
 
 };
 

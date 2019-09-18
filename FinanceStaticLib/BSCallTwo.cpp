@@ -4,7 +4,7 @@
 
 BSCallTwo::BSCallTwo(double r_, double d_, double T_, double Spot_, double Strike_):r(r_),d(d_),T(T_),Spot(Spot_),Strike(Strike_){}
 
-double BSCallTwo::value(double Vol) {
+double BSCallTwo::value(double Vol) const {
 	return BlackScholesCall(Spot, Strike, r, d, Vol, T);
 }
 
@@ -18,7 +18,7 @@ double BSCallTwo::Vomma(double Vol) const {
 	return BlackScholesCallVomma(Spot, Strike, r, d, Vol, T);
 }
 
-DifferentiableFunction* BSCallTwo::differentiate()
+DifferentiableFunction* BSCallTwo::differentiate() const
 {	
 	BSCallVegaTwo* BSVega = new BSCallVegaTwo(r, d, T, Spot, Strike);
 	return BSVega;
@@ -27,23 +27,23 @@ DifferentiableFunction* BSCallTwo::differentiate()
 
 BSCallVegaTwo::BSCallVegaTwo(double r_, double d_, double T_, double Spot_, double Strike_) :r(r_), d(d_), T(T_), Spot(Spot_), Strike(Strike_) {}
 
-DifferentiableFunction* BSCallVegaTwo::differentiate() {
+DifferentiableFunction* BSCallVegaTwo::differentiate() const {
 	BSCallVommaTwo* BSVomma = new BSCallVommaTwo(r, d, T, Spot, Strike);
 	return BSVomma;
 }
 
 
-double BSCallVegaTwo::value(double Vol) {
+double BSCallVegaTwo::value(double Vol) const {
 	return BlackScholesCallVega(Spot, Strike, r, d, Vol, T);
 }
 
 
 BSCallVommaTwo::BSCallVommaTwo(double r_, double d_, double T_, double Spot_, double Strike_) :r(r_), d(d_), T(T_), Spot(Spot_), Strike(Strike_) {}
 
-double BSCallVommaTwo::value(double Vol) {
+double BSCallVommaTwo::value(double Vol) const {
 	return BlackScholesCallVomma(Spot, Strike, r, d, Vol, T);
 }
 
-DifferentiableFunction* BSCallVommaTwo::differentiate() {
+DifferentiableFunction* BSCallVommaTwo::differentiate() const {
 	return __nullptr;
 }

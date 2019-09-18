@@ -5,8 +5,8 @@ class BSCallTwo: public DifferentiableFunction
 {
 public:
 	BSCallTwo(double r_, double d_, double T, double Spot_, double Strike_);
-	virtual double value(double x);
-	virtual DifferentiableFunction* differentiate();
+	virtual double value(double x) const;
+	virtual DifferentiableFunction* differentiate() const;
 	double Vega(double Vol) const;
 	double Vomma(double Vol) const;
 
@@ -22,8 +22,8 @@ class BSCallVegaTwo: public DifferentiableFunction
 {
 public:
 	BSCallVegaTwo(double r_, double d_, double T, double Spot_, double Strike_);
-	virtual double value(double x);
-	virtual DifferentiableFunction* differentiate();
+	virtual double value(double x) const;
+	virtual DifferentiableFunction* differentiate() const;
 
 private:
 	double r;
@@ -37,8 +37,8 @@ class BSCallVommaTwo : public DifferentiableFunction
 {
 public:
 	BSCallVommaTwo(double r_, double d_, double T, double Spot_, double Strike_);
-	double value(double Vol);
-	virtual DifferentiableFunction* differentiate();
+	double value(double Vol) const;
+	virtual DifferentiableFunction* differentiate() const;
 
 private:
 	double r;

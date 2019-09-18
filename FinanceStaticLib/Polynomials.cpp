@@ -17,24 +17,25 @@ double Polynomials::value(double x) const {
 	return sum;
 }
 
-Polynomials Polynomials::differentiate() const {
+DifferentiableFunction* Polynomials::differentiate() const {
 	int Length = Coefficients.size();
 	vector<double> NewCoefficients;
 	if (Length == 1) {
-		Polynomials P({ 0 });
+		Polynomials* P({ 0 });
 		return P;
 	}
 	NewCoefficients.resize(Length - 1);
 	for (unsigned i = 0; i < Length - 1; i++) {
 		NewCoefficients[i]= (Length-1-i) *  Coefficients[i];
 	}
-	return NewCoefficients;
+	Polynomials* DiffPoly = new Polynomials(NewCoefficients);
+	return DiffPoly;
 };
 
 double Polynomials::getDerivative(double x, int n) const {
 	Polynomials P(this->Coefficients);
 	for (int i = 0; i < n; i++) {
-		P = P.differentiate();
+		P.differentiate();
 	}
 	return P.value(x);
 }

@@ -59,8 +59,8 @@ int main()
 
 	cout << "The vol from Newton Raphson is: " << volNR << endl;
 	cout << "The price from this implied vol is: " << PriceTwo << endl;
-
-	/*double volSec = SecantMethod<BSCallTwo, & BSCallTwo::value>(Price, tolerance, start, tolerance, theCall);
+	/*
+	double volSec = SecantMethod<BSCallTwo, & BSCallTwo::value>(Price, tolerance, start, tolerance, theCall);
 
 	cout << "The vol from Secant Method is: " << volSec << endl;
 
@@ -72,14 +72,14 @@ int main()
 
 	cout << "The vol from Halleys Method is: " << volHM << endl;*/
 	
-	std::vector<double> v = {3,0,5,1};
+	std::vector<double> v = {1,0,-5};
 	Polynomials P(v);
 
 	
-	double x = HalleysMethod<Polynomials, & Polynomials::value, & Polynomials::firstDerivative, & Polynomials::secondDerivative>(0, 1, 0.001, P);
+	double x = NewtonRaphson<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(0, 5, 0.0001, &P);
 
-	//double y = HalleysMethod<Polynomials, & Polynomials::value, & Polynomials::differentiate>(0, 1, 0.001, P);
-
+	double y = HalleysMethod<Polynomials, & Polynomials::value, & Polynomials::differentiate>(0, 1, 0.001, P);
+	cout << x << endl;
 	cout << P.getDerivative(1,4) << endl;
 
 	return 0;
