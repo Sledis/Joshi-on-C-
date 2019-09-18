@@ -51,23 +51,26 @@ int main()
 	cin >> tolerance;
 
 	BSCallTwo theCall(r, d, Expiry, Spot, Strike);
-	double volNR = NewtonRaphson<BSCallTwo, & BSCallTwo::Price, & BSCallTwo::Vega>(Price, start, tolerance, theCall);
+
+	cout << (theCall.differentiate()->differentiate())->value(0.1) << endl;
+
+	double volNR = NewtonRaphson<BSCallTwo, & BSCallTwo::value, &  BSCallTwo::differentiate>(Price, start, tolerance, theCall);
 	double PriceTwo = BlackScholesCall(Spot, Strike, r, d, volNR, Expiry);
 
-	cout << "The vol from Newton Raphson is: " << volNR << endl;
-	cout << "The price from this implied vol is: " << PriceTwo << endl;
+	//cout << "The vol from Newton Raphson is: " << volNR << endl;
+	//cout << "The price from this implied vol is: " << PriceTwo << endl;
 
-	double volSec = SecantMethod<BSCallTwo, & BSCallTwo::Price>(Price, tolerance, start, tolerance, theCall);
+	/*double volSec = SecantMethod<BSCallTwo, & BSCallTwo::value>(Price, tolerance, start, tolerance, theCall);
 
 	cout << "The vol from Secant Method is: " << volSec << endl;
 
-	double volSM = SteffensensMethod<BSCallTwo, & BSCallTwo::Price>(Price, start, tolerance, theCall);
+	double volSM = SteffensensMethod<BSCallTwo, & BSCallTwo::value>(Price, start, tolerance, theCall);
 
 	cout << "The vol from Steffensens Method is: " << volSM << endl;
 
-	double volHM = HalleysMethod<BSCallTwo, & BSCallTwo::Price, & BSCallTwo::Vega, &BSCallTwo::Vomma>(Price, start, tolerance, theCall);
+	double volHM = HalleysMethod<BSCallTwo, & BSCallTwo::value, & BSCallTwo::Vega, &BSCallTwo::Vomma>(Price, start, tolerance, theCall);
 
-	cout << "The vol from Halleys Method is: " << volHM << endl;
+	cout << "The vol from Halleys Method is: " << volHM << endl;*/
 	
 	std::vector<double> v = {3,0,5,1};
 	Polynomials P(v);

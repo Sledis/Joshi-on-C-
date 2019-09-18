@@ -162,6 +162,9 @@
     <ClInclude Include="HalleysMethod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DifferentiableFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -300,6 +303,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BSCallTwo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DifferentiableFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

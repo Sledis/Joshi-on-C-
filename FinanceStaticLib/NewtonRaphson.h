@@ -1,8 +1,8 @@
 #pragma once
 #include <math.h>
 
-template<class T, double (T::*Value)(double) const, double (T::*Derivative) (double) const >
-double NewtonRaphson(double Target, double Start, double Tolerance, const T& TheObject) {
+template<class T, double (T::*Value)(double), T (T::*Derivative)() >
+double NewtonRaphson(double Target, double Start, double Tolerance, const T* TheObject) {
 	double y = (TheObject.*Value)(Start);
 	double x = Start;
 
