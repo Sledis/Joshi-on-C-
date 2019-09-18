@@ -54,11 +54,11 @@ int main()
 
 	cout << (theCall.differentiate()->differentiate())->value(0.1) << endl;
 
-	double volNR = NewtonRaphson<BSCallTwo, & BSCallTwo::value, &  BSCallTwo::differentiate>(Price, start, tolerance, theCall);
+	double volNR = NewtonRaphson<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(Price, start, tolerance, &theCall);
 	double PriceTwo = BlackScholesCall(Spot, Strike, r, d, volNR, Expiry);
 
-	//cout << "The vol from Newton Raphson is: " << volNR << endl;
-	//cout << "The price from this implied vol is: " << PriceTwo << endl;
+	cout << "The vol from Newton Raphson is: " << volNR << endl;
+	cout << "The price from this implied vol is: " << PriceTwo << endl;
 
 	/*double volSec = SecantMethod<BSCallTwo, & BSCallTwo::value>(Price, tolerance, start, tolerance, theCall);
 
