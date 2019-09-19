@@ -18,7 +18,7 @@ double BlackScholesPut(double Spot, double Strike, double r, double d, double Vo
 	double moneyness = log(Spot / Strike);
 	double d1 = (moneyness + (r - d) * Expiry + 0.5 * standardDeviation * standardDeviation) / standardDeviation;
 	double d2 = d1 - standardDeviation;
-	return Strike * exp(-r * Expiry) *(1- CumulativeNormal(d2)) - Spot * exp(-d * Expiry) *(1- CumulativeNormal(d2));
+	return Strike * exp(-r * Expiry) *(1.0- CumulativeNormal(d2)) - Spot * exp(-d * Expiry) *(1- CumulativeNormal(d1));
 }
 
 double BlackScholesDigitalCall(double Spot, double Strike, double r, double d, double Vol, double Expiry) {

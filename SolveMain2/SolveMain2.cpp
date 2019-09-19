@@ -1,20 +1,94 @@
 #include "NewtonRaphson.h"
 #include <cmath>
 #include"BSCallTwo.h"
+#include "BSPutTwo.h"
 #include "BlackScholesFormulas.h"
 #include "SecantMethod.h"
 #include "Polynomials.h"
 #include "SteffensensMethod.h"
 #include "HalleysMethod.h"
+#include "TestFileReader1.h"
 
 
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-	
+	string EnterType;
+
+	cout << "Enter t to run from a text document, anything else for self input: " << flush;
+	cin >> EnterType;
+
+	if (EnterType == "t") {
+		string TestFileName;
+		cout << "Text document name: " << flush;
+		cin >> TestFileName;
+
+		TestFileReader test1(TestFileName);
+
+		while (!test1.eof()) {
+
+			pair<string,vector<double>> Option = test1.getData();
+			string Type =Option.first;
+			vector<double> Data = Option.second;
+			
+			double Expiry = Data[0];
+			double Strike = Data[1];
+			double Spot = Data[2];
+			double Vol = Data[3];
+			double r = Data[4];
+			double d = Data[5];
+			double AnalyticPrice = Data[6];
+			
+
+		
+			
+
+			DifferentiableFunction* BSptr = NULL;
+			if (Type == "Call") {
+				 BSptr = new BSCallTwo(r, d, Expiry, Spot, Strike);
+				 if (AnalyticPrice < 0) {
+					 AnalyticPrice = BlackScholesCall(Spot, Strike, r, d, Vol, Expiry);
+				 }
+				 
+			}
+			else if (Type == "Put") {
+				BSptr = new BSPutTwo(r, d, Expiry, Spot, Strike);
+				if (AnalyticPrice < 0) {
+					AnalyticPrice = BlackScholesPut(Spot, Strike, r, d, Vol, Expiry);
+				}
+			}
+			
+
+			//cout << AnalyticPrice << endl;
+
+			double volNR = NewtonRaphson<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(AnalyticPrice, 0.5, 0.00001, BSptr);
+
+			cout << "The Vol from Newton Raphson is: " << volNR << ". The actual given vol is: " << Vol << "." << endl;
+
+			double volSec = SecantMethod<DifferentiableFunction, & DifferentiableFunction::value>(AnalyticPrice, 0.05, 0.5, 0.00001, BSptr);
+
+			cout << "The vol from Secant Method is: " << volSec << ". The actual given vol is: " << Vol << "." << endl;
+			
+			//double volHM = HalleysMethod<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(AnalyticPrice, 0.5, 0.00001, BSptr);
+
+			//cout << "The vol from Halleys Method is: " << volHM << endl;
+			
+			
+			delete BSptr;
+
+		}
+	}
+	else {
+		cout << "Standard input" << endl;
+	}
+
+
+	/*
 	double Expiry;
 	double Strike;
 	double Spot;
@@ -59,7 +133,7 @@ int main()
 
 	cout << "The vol from Newton Raphson is: " << volNR << endl;
 	cout << "The price from this implied vol is: " << PriceTwo << endl;
-	/*
+	
 	double volSec = SecantMethod<BSCallTwo, & BSCallTwo::value>(Price, tolerance, start, tolerance, theCall);
 
 	cout << "The vol from Secant Method is: " << volSec << endl;
@@ -70,7 +144,7 @@ int main()
 
 	double volHM = HalleysMethod<BSCallTwo, & BSCallTwo::value, & BSCallTwo::Vega, &BSCallTwo::Vomma>(Price, start, tolerance, theCall);
 
-	cout << "The vol from Halleys Method is: " << volHM << endl;*/
+	cout << "The vol from Halleys Method is: " << volHM << endl;
 	
 	std::vector<double> v = {1,0,-5};
 	Polynomials P(v);
@@ -78,10 +152,10 @@ int main()
 	
 	double x = NewtonRaphson<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(0, 5, 0.0001, &P);
 
-	double y = HalleysMethod<Polynomials, & Polynomials::value, & Polynomials::differentiate>(0, 1, 0.001, P);
+	//double y = HalleysMethod<Polynomials, & Polynomials::value, & Polynomials::differentiate>(0, 1, 0.001, P);
 	cout << x << endl;
 	cout << P.getDerivative(1,4) << endl;
-
+	*/
 	return 0;
 }
 

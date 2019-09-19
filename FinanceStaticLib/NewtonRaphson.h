@@ -7,7 +7,7 @@ double NewtonRaphson(double Target, double Start, double Tolerance, T* TheObject
 	double x = Start;
 
 	while (fabs(y - Target) > Tolerance) {
-		double d = ((TheObject->differentiate())->value(x));
+		DifferentiableFunction* d = (*TheObject.*Derivative);
 		x += (Target - y) / d;
 		y = (*TheObject.*Value)(x);
 	}

@@ -165,6 +165,12 @@
     <ClInclude Include="DifferentiableFunction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TestFileReader1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSPutTwo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FinanceStaticLib.cpp">
@@ -308,5 +314,14 @@
     <ClCompile Include="DifferentiableFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestFileReader1.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BSPutTwo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="OptionTest1.txt" />
   </ItemGroup>
 </Project>
