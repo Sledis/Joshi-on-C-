@@ -11,11 +11,19 @@ using namespace std;
 
 
 TestFileReader::TestFileReader(string address) {
-	string testFileName = "C:\\Users\\sam_e\\source\\repos\\Joshi on C++\\FinanceStaticLib\\";
+	string testFileName = "C:\\Users\\sam_e\\source\\repos\\Sledis\\Joshi-on-C-\\FinanceStaticLib\\";
+
+	//"C:\Users\sam_e\source\repos\Sledis\Joshi-on-C-\FinanceStaticLib\OptionTest1.txt"
+
 	testFileName += address;
 	test.open(testFileName);
-	string line;
-	getline(test, line);
+	if (test.is_open()) {
+		string line;
+		getline(test, line);
+	}
+	else {
+		throw "File can't be opened";
+	}
 }
 
 pair<string, vector<double>> TestFileReader::getData() {

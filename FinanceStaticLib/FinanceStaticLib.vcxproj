@@ -199,6 +199,7 @@
     <ClInclude Include="SquaredRandonAlgo.h" />
     <ClInclude Include="SteffensensMethod.h" />
     <ClInclude Include="TestFileReader1.h" />
+    <ClInclude Include="ValueDiffableFunction.h" />
     <ClInclude Include="Vanilla1.h" />
     <ClInclude Include="Vanilla2.h" />
     <ClInclude Include="Vanilla3.h" />

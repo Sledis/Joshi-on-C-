@@ -1,4 +1,4 @@
-#include "NewtonRaphson.h"
+#include "ValueDiffableFunction.h"
 #include <cmath>
 #include"BSCallTwo.h"
 #include "BSPutTwo.h"
@@ -8,6 +8,10 @@
 #include "SteffensensMethod.h"
 #include "HalleysMethod.h"
 #include "TestFileReader1.h"
+
+
+
+
 
 
 #include <iostream>
@@ -48,7 +52,7 @@ int main()
 		
 			
 
-			DifferentiableFunction* BSptr = NULL;
+			DifferentiableFunction* BSptr;
 			if (Type == "Call") {
 				 BSptr = new BSCallTwo(r, d, Expiry, Spot, Strike);
 				 if (AnalyticPrice < 0) {
@@ -56,23 +60,26 @@ int main()
 				 }
 				 
 			}
-			else if (Type == "Put") {
+			else {
 				BSptr = new BSPutTwo(r, d, Expiry, Spot, Strike);
 				if (AnalyticPrice < 0) {
 					AnalyticPrice = BlackScholesPut(Spot, Strike, r, d, Vol, Expiry);
 				}
 			}
 			
+			double ans = NewtonRaphson2<DifferentiableFunction>(AnalyticPrice, 0.5, 0.0001, *BSptr);
+
+			cout << "The Newton Raphson vol is: " << ans << ". The acutal vol is: " << Vol << "." << endl;
 
 			//cout << AnalyticPrice << endl;
 
-			double volNR = NewtonRaphson<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(AnalyticPrice, 0.5, 0.00001, BSptr);
+			//double volNR = NewtonRaphson<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(AnalyticPrice, 0.5, 0.00001, BSptr);
 
-			cout << "The Vol from Newton Raphson is: " << volNR << ". The actual given vol is: " << Vol << "." << endl;
+			//cout << "The Vol from Newton Raphson is: " << volNR << ". The actual given vol is: " << Vol << "." << endl;
 
-			double volSec = SecantMethod<DifferentiableFunction, & DifferentiableFunction::value>(AnalyticPrice, 0.05, 0.5, 0.00001, BSptr);
+			//double volSec = SecantMethod<DifferentiableFunction, & DifferentiableFunction::value>(AnalyticPrice, 0.05, 0.5, 0.00001, BSptr);
 
-			cout << "The vol from Secant Method is: " << volSec << ". The actual given vol is: " << Vol << "." << endl;
+			//cout << "The vol from Secant Method is: " << volSec << ". The actual given vol is: " << Vol << "." << endl;
 			
 			//double volHM = HalleysMethod<DifferentiableFunction, & DifferentiableFunction::value, & DifferentiableFunction::differentiate>(AnalyticPrice, 0.5, 0.00001, BSptr);
 
