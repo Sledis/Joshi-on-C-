@@ -6,6 +6,7 @@
 #include "TrapeziumRule.h"
 #include <chrono>
 #include "Parameters.h"
+#include "ValueDiffableFunction.h"
 
 using namespace std;
 
@@ -34,6 +35,28 @@ int main()
 	Polynomials function(Coefficients);
 	Polynomials function2=function.square();
 
+	double y = Evaluate<DifferentiableFunction, &DifferentiableFunction::value>(3, function);
+	cout << y << endl;
+
+
+
+	DifferentiableFunction* f=diffFunction<DifferentiableFunction, &DifferentiableFunction::differentiate>(function);
+	double z= Evaluate<DifferentiableFunction, & DifferentiableFunction::value>(3, *f);
+
+	cout << z << endl;
+
+	DifferentiableFunction* g = diffFunction<DifferentiableFunction, & DifferentiableFunction::differentiate>(*f);
+	double w = Evaluate<DifferentiableFunction, & DifferentiableFunction::value>(3, *g);
+
+	cout << w << endl;
+
+	double sqrt = NewtonRaphson<DifferentiableFunction>(0, 2, 0.001, function);
+
+	cout << sqrt << endl;
+
+
+	/*
+
 	double Start;
 	cout << "Enter the starting point: " << flush;
 	cin >> Start;
@@ -54,8 +77,8 @@ int main()
 
 
 		
+	*/
 
-	
 	
 	
 	

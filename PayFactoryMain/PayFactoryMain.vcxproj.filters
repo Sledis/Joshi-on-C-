@@ -33,5 +33,8 @@
     <ClCompile Include="Polynomial Registration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LocallyConstantRegistration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
