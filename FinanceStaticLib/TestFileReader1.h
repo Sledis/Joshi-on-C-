@@ -10,6 +10,7 @@ public:
 	TestFileReader(string Adress);
 	pair<string, vector<double>> getData();
 	bool eof();
+	bool is_open();
 
 private:
 	string testFileName;

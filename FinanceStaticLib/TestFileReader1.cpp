@@ -21,9 +21,6 @@ TestFileReader::TestFileReader(string address) {
 		string line;
 		getline(test, line);
 	}
-	else {
-		throw "File can't be opened";
-	}
 }
 
 pair<string, vector<double>> TestFileReader::getData() {
@@ -31,52 +28,54 @@ pair<string, vector<double>> TestFileReader::getData() {
 
 	
 
-	string line;
-	string Type;
-	pair<string, vector<double>> s;
-	getline(test, line, ',');
-	line.erase(remove(line.begin(), line.end(), '\n'), line.end());
-	line.erase(remove(line.begin(), line.end(), '\t'), line.end());
+		string line;
+		string Type;
+		pair<string, vector<double>> s;
+		getline(test, line, ',');
+		line.erase(remove(line.begin(), line.end(), '\n'), line.end());
+		line.erase(remove(line.begin(), line.end(), '\t'), line.end());
 
-	Type = line;
+		Type = line;
+
+
+
+
+		getline(test, line, ' ');
+		test >> data[0];
+
+
+
+
+		getline(test, line, ' ');
+		test >> data[1];
+
+
+
+		getline(test, line, ' ');
+		test >> data[2];
+
+
+
+
+		getline(test, line, ' ');
+		test >> data[3];
+
+
+
+
+		getline(test, line, ' ');
+		test >> data[4];
+
+		getline(test, line, ' ');
+		test >> data[5];
+
+		getline(test, line, ' ');
+		test >> data[6];
+
+		s.first = Type;
+		s.second = data;
 	
 	
-
-
-	getline(test, line, ' ');
-	test >> data[0];
-	
-	
-	
-
-	getline(test, line, ' ');
-	test >> data[1];
-	
-
-
-	getline(test, line, ' ');
-	test >> data[2];
-	
-
-
-
-	getline(test, line, ' ');
-	test >> data[3];
-	
-
-
-
-	getline(test, line, ' ');
-	test >> data[4];
-	
-	getline(test, line, ' ');
-	test >> data[5];
-
-	getline(test, line, ' ');
-	test >> data[6];
-
-	s.first = Type;
-	s.second = data;
 
 	return s;
 
@@ -84,4 +83,8 @@ pair<string, vector<double>> TestFileReader::getData() {
 
 bool TestFileReader::eof() {
 	return test.eof();
+}
+
+bool TestFileReader::is_open() {
+	return test.is_open();
 }
