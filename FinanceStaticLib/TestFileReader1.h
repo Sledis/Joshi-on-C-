@@ -11,10 +11,9 @@ public:
 	pair<string, vector<double>> getData();
 	bool eof();
 	bool is_open();
-	void writeValue(double value);
 
 private:
 	string testFileName;
-	fstream test;
+	ifstream test;
 	
 };

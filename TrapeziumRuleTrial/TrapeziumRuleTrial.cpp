@@ -42,11 +42,13 @@ int main()
 
 	DifferentiableFunction* f=diffFunction<DifferentiableFunction, &DifferentiableFunction::differentiate>(function);
 	double z= Evaluate<DifferentiableFunction, & DifferentiableFunction::value>(3, *f);
-	double w = function.NumericDifferentiate(3, 0.001);
 
-	cout << "Actual derivative is: " << z << ". The Numeric derivative is: "<< w << "." << endl;
+	cout << z << endl;
 
-	
+	DifferentiableFunction* g = diffFunction<DifferentiableFunction, & DifferentiableFunction::differentiate>(*f);
+	double w = Evaluate<DifferentiableFunction, & DifferentiableFunction::value>(3, *g);
+
+	cout << w << endl;
 
 	double sqrt = NewtonRaphson<DifferentiableFunction>(0, 2, 0.001, function);
 

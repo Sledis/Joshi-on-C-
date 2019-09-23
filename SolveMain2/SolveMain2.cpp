@@ -63,9 +63,7 @@ int main()
 			if (Type == "Call") {
 				BSptr = new BSCallTwo(r, d, Expiry, Spot, Strike);
 				if (AnalyticPrice < 0) {
-					cout << "Trying to write" << endl;
 					AnalyticPrice = BlackScholesCall(Spot, Strike, r, d, Vol, Expiry);
-					
 				}
 
 			}

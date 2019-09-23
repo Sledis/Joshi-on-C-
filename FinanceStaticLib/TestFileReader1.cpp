@@ -11,12 +11,12 @@ using namespace std;
 
 
 TestFileReader::TestFileReader(string address) {
-	string testFileName = "C:\\Users\\sam_e\\source\\repos\\Joshi on C++\\FinanceStaticLib\\";
-	//"C:\\Users\\sam_e\\source\\repos\\Sledis\\Joshi-on-C-\\FinanceStaticLib\\"
-	//"C:\\Users\\sam_e\\source\\repos\\Joshi on C++\\FinanceStaticLib\\"d
-	
+	string testFileName = "C:\\Users\\sam_e\\source\\repos\\Sledis\\Joshi-on-C-\\FinanceStaticLib\\";
+
+	//"C:\Users\sam_e\source\repos\Sledis\Joshi-on-C-\FinanceStaticLib\OptionTest1.txt"
+
 	testFileName += address;
-	test.open(testFileName, std::ios::in | std::ios::out);
+	test.open(testFileName);
 	if (test.is_open()) {
 		string line;
 		getline(test, line);
@@ -87,9 +87,4 @@ bool TestFileReader::eof() {
 
 bool TestFileReader::is_open() {
 	return test.is_open();
-}
-
-void TestFileReader::writeValue(double value) {
-	test.seekp(0, ios::cur);
-	test << value;
 }
